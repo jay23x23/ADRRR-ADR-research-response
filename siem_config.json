@@ -1,0 +1,18 @@
+{
+  "brute_force_failures": 5,
+  "brute_force_window_seconds": 600,
+  "beacon_min_connections": 6,
+  "beacon_interval_jitter_ratio": 0.15,
+  "exfil_bytes": 100000000,
+  "dns_min_queries": 20,
+  "dns_window_seconds": 60,
+  "dns_label_length": 45,
+  "dns_entropy": 3.8,
+  "unusual_login_start_hour": 0,
+  "unusual_login_end_hour": 5,
+  "service_accounts": ["svc_backup"],
+  "expected_countries": {"jose": ["GB"]},
+  "known_devices": {"jose": ["managed-laptop-01"]},
+  "server_hosts": ["dc01", "jump01", "backup01"],
+  "approved_lsass_readers": ["csrss.exe", "wininit.exe", "msmpeng.exe"]
+}

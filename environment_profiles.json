@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "environments": {
+    "windows_11": {
+      "label": "Windows 11",
+      "platform": "windows",
+      "shell": "powershell",
+      "minimum_shell": "Windows PowerShell 5.1 or PowerShell 7",
+      "recommended_telemetry": ["Windows Security Audit", "Sysmon", "Microsoft Defender for Endpoint or equivalent EDR", "Windows Firewall logs", "PowerShell logging"],
+      "notes": "Some LocalAccounts cmdlets are unavailable in 32-bit PowerShell on a 64-bit host. Domain-account response belongs in an identity platform, not local-user cmdlets."
+    },
+    "windows_server": {
+      "label": "Windows Server",
+      "platform": "windows",
+      "shell": "powershell",
+      "minimum_shell": "Windows PowerShell 5.1 or PowerShell 7",
+      "recommended_telemetry": ["Windows Security Audit", "Sysmon", "Microsoft Defender for Endpoint or equivalent EDR", "Windows Firewall logs", "PowerShell logging", "server-role logs"],
+      "notes": "Containment must account for server role, clustering, load balancing, service identities, remote management, and business continuity. Domain-controller response requires a dedicated identity incident procedure."
+    },
+    "linux_mint": {
+      "label": "Linux Mint",
+      "platform": "linux",
+      "shell": "bash",
+      "minimum_shell": "Bash 5",
+      "package_family": "debian",
+      "recommended_telemetry": ["auditd", "journald", "auth.log", "UFW/nftables logs", "EDR or osquery"],
+      "notes": "Mint is Ubuntu/Debian-derived, but desktop services and installed firewall tooling vary. Detect nftables/UFW availability before proposing changes."
+    },
+    "ubuntu": {
+      "label": "Ubuntu",
+      "platform": "linux",
+      "shell": "bash",
+      "minimum_shell": "Bash 5",
+      "package_family": "debian",
+      "recommended_telemetry": ["auditd", "journald", "auth.log", "UFW/nftables logs", "EDR or osquery"],
+      "notes": "Server and desktop roles differ. Service, firewall, and account controls require dependency and remote-access checks before execution."
+    },
+    "ubuntu_server": {
+      "label": "Ubuntu Server",
+      "platform": "linux",
+      "shell": "bash",
+      "minimum_shell": "Bash 5",
+      "package_family": "debian",
+      "recommended_telemetry": ["auditd", "journald", "auth.log", "UFW/nftables logs", "EDR or osquery", "application and reverse-proxy logs"],
+      "notes": "Before process, account, firewall, or service containment, identify server role, SSH access path, systemd dependencies, failover, active transactions, and recovery ownership."
+    }
+  }
+}
